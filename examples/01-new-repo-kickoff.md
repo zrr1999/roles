@@ -8,9 +8,9 @@
 
 `directors/new-project`
 
-## Likely Leader Flow
+## Likely Specialist Support
 
-`leaders/scout` -> `leaders/shaper` -> `leaders/builder` -> `leaders/verifier`
+`specialists/researcher` -> `specialists/coder` -> `specialists/tester`
 
 ## Why
 

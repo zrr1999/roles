@@ -1,8 +1,8 @@
 ---
 name: researcher
 description: >-
-  Specialist researcher. Gathers references, prior art, implementation clues,
-  and bounded findings for a sharply framed question.
+  Use for a sharply framed research question that needs bounded references,
+  prior art, implementation clues, or source-backed findings.
 role: subagent
 model:
   tier: low

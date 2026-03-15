@@ -8,9 +8,9 @@
 
 `directors/learn-project`
 
-## Likely Leader Flow
+## Likely Specialist Support
 
-`leaders/scout` -> `leaders/distiller` -> `leaders/reviewer`
+`specialists/researcher` -> `specialists/analyst` -> `specialists/writer`
 
 ## Why
 

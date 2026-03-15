@@ -1,8 +1,8 @@
 ---
 name: tester
 description: >-
-  Specialist tester. Runs targeted tests, diagnostics, and repro loops to
-  produce concrete regression or validation evidence.
+  Use for targeted tests, diagnostics, and repro loops when the parent already
+  knows what path or claim needs checking.
 role: subagent
 model:
   tier: low

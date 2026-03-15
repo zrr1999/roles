@@ -1,8 +1,8 @@
 ---
 name: coder
 description: >-
-  Specialist coder. Implements scoped code changes, refactors, and small proofs
-  when the task is already well-defined.
+  Use when the code change is already well-defined and needs focused
+  implementation, a narrow refactor, or a small proof.
 role: subagent
 model:
   tier: low

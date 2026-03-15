@@ -16,12 +16,12 @@ This repo only defines role responsibilities and routing. It does not own a memo
 - `roles.toml` casting metadata for `uvx role-forge`.
 - `examples/` a few realistic routing examples.
 - `justfile` a tiny local command wrapper.
+- `install.sh` one-shot installer for `uvx role-forge` and repo casting.
 
 ## Hierarchy
 
 - `orchestrator` routes the work.
 - `directors/` own one of the three core work modes.
-- `leaders/` break each mode into common sub-work such as discovery, shaping, building, verification, synthesis, and review.
 - `specialists/` do narrow execution.
 
 ## Role Map
@@ -30,7 +30,6 @@ This repo only defines role responsibilities and routing. It does not own a memo
 - `directors/new-project`: start a new repo, prototype, or greenfield direction.
 - `directors/maintain-project`: continue an existing repo, bugfix, refactor, or next slice of work.
 - `directors/learn-project`: study a strong project and extract what is worth borrowing.
-- `leaders/*`: reusable sub-work lanes inside each director.
 - `specialists/*`: narrow execution helpers.
 
 ## When To Route Where
@@ -47,6 +46,12 @@ Render the roles with `uvx role-forge`:
 
 ```bash
 uvx role-forge cast --config roles.toml
+```
+
+Or install and cast in one shot:
+
+```bash
+bash install.sh
 ```
 
 Or use the tiny helper:

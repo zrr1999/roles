@@ -6,7 +6,7 @@ Each example shows:
 
 - the user ask
 - which director the orchestrator should choose
-- which leader flow is likely to be used underneath
+- which specialists are likely to be pulled in underneath
 - what the chosen role should produce next
 
 ## Example Index
@@ -24,5 +24,4 @@ The examples intentionally show the separation of concerns:
 They also show the layering:
 
 - orchestrator chooses the director
-- directors use leaders for common sub-work
-- leaders may use specialists for narrow execution
+- directors may use specialists for narrow execution

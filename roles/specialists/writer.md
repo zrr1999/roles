@@ -1,8 +1,8 @@
 ---
 name: writer
 description: >-
-  Specialist writer. Turns approved findings into concise packets, summaries,
-  and notes without changing the underlying conclusion.
+  Use when approved findings need to be packaged into a concise packet,
+  summary, or note without changing the underlying conclusion.
 role: subagent
 model:
   tier: low

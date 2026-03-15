@@ -1,8 +1,8 @@
 ---
 name: analyst
 description: >-
-  Specialist analyst. Distills diffs, logs, code structure, and structured
-  evidence for a specific bounded question.
+  Use for a bounded analytical question about diffs, logs, code structure, or
+  other structured evidence.
 role: subagent
 model:
   tier: low
