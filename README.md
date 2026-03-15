@@ -13,24 +13,23 @@ This repo only defines role responsibilities and routing. It does not own a memo
 ## Layout
 
 - `roles/` canonical role prompts.
-- `roles.toml` casting metadata for `uvx role-forge`.
+- `roles.toml` project metadata for `uvx role-forge`.
 - `examples/` a few realistic routing examples.
-- `justfile` a tiny local command wrapper.
-- `install.sh` one-shot installer for `uvx role-forge` and repo casting.
+- `install.sh` one-shot installer for `uvx role-forge` and this roles package.
 
 ## Hierarchy
 
 - `orchestrator` routes the work.
-- `directors/` own one of the three core work modes.
-- `specialists/` do narrow execution.
+- `directors/` own one of the three core work modes and decompose non-trivial work.
+- `specialists/` do narrow execution under a director's explicit brief.
 
 ## Role Map
 
-- `orchestrator`: choose the current work mode and keep the boundary explicit.
-- `directors/new-project`: start a new repo, prototype, or greenfield direction.
-- `directors/maintain-project`: continue an existing repo, bugfix, refactor, or next slice of work.
-- `directors/learn-project`: study a strong project and extract what is worth borrowing.
-- `specialists/*`: narrow execution helpers.
+- `orchestrator`: choose the current work mode, keep the boundary explicit, and require explicit decomposition for non-trivial work.
+- `directors/new-project`: start a new repo, prototype, or greenfield direction, then split discovery, proof, and validation work.
+- `directors/maintain-project`: continue an existing repo, bugfix, refactor, or next slice of work, then split analysis, implementation, and verification work.
+- `directors/learn-project`: study a strong project, then split reading and distillation work into bounded briefs.
+- `specialists/*`: narrow execution helpers with merge-ready outputs.
 
 ## When To Route Where
 
@@ -40,24 +39,32 @@ This repo only defines role responsibilities and routing. It does not own a memo
 - Load `tech-preferences` before meaningful stack choices.
 - Keep one primary mode active unless the user clearly wants a combined pass.
 
+## Operating Rules
+
+- Sequence across modes; parallelize inside a mode whenever the subproblems are independent.
+- Directors should make decomposition explicit for non-trivial work: subproblems, dependencies, output floors, and merge plan.
+- If two or more specialist briefs do not depend on each other, run them in parallel by default.
+- Directors should do specialist-sized work directly only when the task is too small to justify delegation or tight synthesis makes delegation wasteful.
+- Specialist briefs should name `goal`, `inputs`, `non-goals`, `expected output`, and whether the brief blocks other work.
+
 ## Use It
 
-Render the roles with `uvx role-forge`:
+Install or update the roles package with `uvx role-forge`:
 
 ```bash
-uvx role-forge cast --config roles.toml
+uvx role-forge add zrr1999/roles
 ```
 
-Or install and cast in one shot:
+Or use the helper script:
 
 ```bash
 bash install.sh
 ```
 
-Or use the tiny helper:
+If you maintain this repo and need to regenerate `.opencode` outputs locally:
 
 ```bash
-just cast
+uvx role-forge cast --project-dir . --target opencode
 ```
 
 ## Expected Outputs
@@ -65,6 +72,7 @@ just cast
 - `directors/new-project`: goal, constraints, initial shape, what to prove first, next 3 tasks
 - `directors/maintain-project`: current state, chosen scope, concrete next change, risks, follow-ups
 - `directors/learn-project`: project snapshot, patterns worth borrowing, patterns to avoid, suggested application
+- `specialists/*`: merge-ready packet with concrete evidence, changes, or wording and any blockers
 
 Use local notes only when they help. The roles should still work without any dedicated artifact file.
 

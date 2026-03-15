@@ -24,4 +24,6 @@ The examples intentionally show the separation of concerns:
 They also show the layering:
 
 - orchestrator chooses the director
-- directors may use specialists for narrow execution
+- directors decompose the work into explicit specialist briefs
+- independent specialist briefs run in parallel by default
+- specialists stay narrow and return merge-ready packets

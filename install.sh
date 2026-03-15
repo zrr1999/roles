@@ -32,7 +32,7 @@ ensure_uv() {
 
 main() {
   ensure_uv
-  log "Casting roles with role-forge..."
+  log "Installing roles with role-forge..."
   uvx role-forge add zrr1999/roles
   log "Done."
 }

@@ -11,7 +11,8 @@ Prompt:
 Expected:
 
 - `orchestrator` chooses `directors/new-project`
-- likely flow includes `leaders/scout`, `leaders/shaper`, and possibly `leaders/builder`
+- the director makes the kickoff packet explicit before building
+- if feasibility splits into separate questions, likely flow includes parallel `specialists/researcher` and `specialists/analyst`, followed by `specialists/coder` and `specialists/tester`
 
 ## 2. `directors/maintain-project`
 
@@ -22,7 +23,8 @@ Prompt:
 Expected:
 
 - `orchestrator` chooses `directors/maintain-project`
-- likely flow includes `leaders/scout`, `leaders/shaper`, `leaders/builder`
+- the director narrows the work to one continuation path
+- likely flow includes parallel `specialists/analyst` and `specialists/tester` when current behavior can be inspected independently, followed by `specialists/coder` and targeted retest
 
 ## 3. `directors/learn-project`
 
@@ -33,7 +35,8 @@ Prompt:
 Expected:
 
 - `orchestrator` chooses `directors/learn-project`
-- likely flow includes `leaders/scout` and `leaders/distiller`
+- the director defines the learning questions before broad reading
+- likely flow includes parallel question-focused `specialists/researcher` briefs or a split between `specialists/researcher` and `specialists/analyst`, followed by `specialists/writer`
 
 ## 4. mixed request
 
@@ -45,3 +48,16 @@ Expected:
 
 - `orchestrator` keeps the modes explicit instead of blurring them
 - likely sequence: `directors/learn-project` then `directors/maintain-project`
+- within each mode, independent specialist briefs are parallelized instead of serialized into one long director pass
+
+## 5. same-mode parallelization
+
+Prompt:
+
+> 帮我看看这个老项目里接口变慢和测试变慢分别卡在哪，最后给我一个优先级建议，但不要先入为主只盯一个问题。
+
+Expected:
+
+- `orchestrator` chooses `directors/maintain-project`
+- the director makes the two investigation tracks explicit instead of collapsing them into one generic scan
+- likely flow includes parallel specialist briefs for the two slow paths, followed by a merged continuation packet with priority recommendation
