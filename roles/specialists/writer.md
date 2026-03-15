@@ -5,7 +5,7 @@ description: >-
   summary, or note without changing the underlying conclusion.
 role: subagent
 model:
-  tier: low
+  tier: default
 capabilities:
   - basic
 ---

@@ -7,7 +7,7 @@ description: >-
   needs explicit selection.
 role: primary
 model:
-  tier: high
+  tier: default
 capabilities:
   - all
 ---

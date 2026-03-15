@@ -5,7 +5,7 @@ description: >-
   other structured evidence.
 role: subagent
 model:
-  tier: low
+  tier: default
 capabilities:
   - basic
 ---

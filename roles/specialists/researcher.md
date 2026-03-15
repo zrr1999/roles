@@ -5,7 +5,7 @@ description: >-
   prior art, implementation clues, or source-backed findings.
 role: subagent
 model:
-  tier: low
+  tier: default
 capabilities:
   - basic
 ---

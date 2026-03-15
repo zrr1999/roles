@@ -5,7 +5,7 @@ description: >-
   knows what path or claim needs checking.
 role: subagent
 model:
-  tier: low
+  tier: coding
 capabilities:
   - basic
 ---

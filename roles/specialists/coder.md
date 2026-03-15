@@ -5,7 +5,7 @@ description: >-
   implementation, a narrow refactor, or a small proof.
 role: subagent
 model:
-  tier: low
+  tier: coding
 capabilities:
   - basic
 ---

@@ -6,7 +6,7 @@ description: >-
   work.
 role: subagent
 model:
-  tier: medium
+  tier: default
 capabilities:
   - all
 ---
