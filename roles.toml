@@ -7,5 +7,5 @@ output_dir = "."
 output_layout = "preserve"
 
 [targets.opencode.model_map]
-coding = "github-copilot/gpt-5.4"
-default = "github-copilot/gpt-5.3-codex"
+default = "github-copilot/gpt-5.4"
+coding = "github-copilot/gpt-5.3-codex"
