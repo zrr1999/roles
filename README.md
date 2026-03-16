@@ -7,7 +7,7 @@ This repo only defines role responsibilities and routing. It does not own a memo
 ## Role Boundary
 
 - `roles/` decides what kind of work this is.
-- The sibling `skills` repo provides reusable methods such as `tech-preferences`, `project-kickoff`, `maintenance-pass`, and `project-reading`.
+- The sibling `skills` repo provides reusable methods such as `work-mode-routing`, `tech-preferences`, `project-kickoff`, `maintenance-pass`, and `project-reading`.
 - Outputs can stay in the conversation or in ad hoc notes; this repo does not require a fixed runtime memory file.
 
 ## Layout
@@ -19,13 +19,13 @@ This repo only defines role responsibilities and routing. It does not own a memo
 
 ## Hierarchy
 
-- `orchestrator` routes the work.
+- Load `work-mode-routing` when work mode is unclear; it routes to directors.
 - `directors/` own one of the three core work modes and decompose non-trivial work.
 - `specialists/` do narrow execution under a director's explicit brief.
 
 ## Role Map
 
-- `orchestrator`: choose the current work mode, keep the boundary explicit, and require explicit decomposition for non-trivial work.
+- `work-mode-routing` (skill): choose the current work mode, keep the boundary explicit, and require explicit decomposition for non-trivial work.
 - `directors/new-project`: start a new repo, prototype, or greenfield direction, then split discovery, proof, and validation work.
 - `directors/maintain-project`: continue an existing repo, bugfix, refactor, or next slice of work, then split analysis, implementation, and verification work.
 - `directors/learn-project`: study a strong project, then split reading and distillation work into bounded briefs.

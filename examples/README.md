@@ -5,7 +5,7 @@ These examples are designed to be used as realistic starting packets for the `ro
 Each example shows:
 
 - the user ask
-- which director the orchestrator should choose
+- which director to choose
 - which specialists are likely to be pulled in underneath
 - what the chosen role should produce next
 
@@ -23,7 +23,7 @@ The examples intentionally show the separation of concerns:
 
 They also show the layering:
 
-- orchestrator chooses the director
+- agent routes to the director (via `work-mode-routing`)
 - directors decompose the work into explicit specialist briefs
 - independent specialist briefs run in parallel by default
 - specialists stay narrow and return merge-ready packets

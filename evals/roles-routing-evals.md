@@ -10,7 +10,7 @@ Prompt:
 
 Expected:
 
-- `orchestrator` chooses `directors/new-project`
+- route to `directors/new-project`
 - the director makes the kickoff packet explicit before building
 - if feasibility splits into separate questions, likely flow includes parallel `specialists/researcher` and `specialists/analyst`, followed by `specialists/coder` and `specialists/tester`
 
@@ -22,7 +22,7 @@ Prompt:
 
 Expected:
 
-- `orchestrator` chooses `directors/maintain-project`
+- route to `directors/maintain-project`
 - the director narrows the work to one continuation path
 - likely flow includes parallel `specialists/analyst` and `specialists/tester` when current behavior can be inspected independently, followed by `specialists/coder` and targeted retest
 
@@ -34,7 +34,7 @@ Prompt:
 
 Expected:
 
-- `orchestrator` chooses `directors/learn-project`
+- route to `directors/learn-project`
 - the director defines the learning questions before broad reading
 - likely flow includes parallel question-focused `specialists/researcher` briefs or a split between `specialists/researcher` and `specialists/analyst`, followed by `specialists/writer`
 
@@ -46,7 +46,7 @@ Prompt:
 
 Expected:
 
-- `orchestrator` keeps the modes explicit instead of blurring them
+- keep the modes explicit instead of blurring them
 - likely sequence: `directors/learn-project` then `directors/maintain-project`
 - within each mode, independent specialist briefs are parallelized instead of serialized into one long director pass
 
@@ -58,6 +58,6 @@ Prompt:
 
 Expected:
 
-- `orchestrator` chooses `directors/maintain-project`
+- route to `directors/maintain-project`
 - the director makes the two investigation tracks explicit instead of collapsing them into one generic scan
 - likely flow includes parallel specialist briefs for the two slow paths, followed by a merged continuation packet with priority recommendation
