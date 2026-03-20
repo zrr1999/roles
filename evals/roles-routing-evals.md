@@ -1,8 +1,8 @@
-# Roles Routing Smoke Tests
+# Roles routing smoke tests
 
-Use these prompts to sanity-check whether the top-level routing still picks the right director.
+Use these prompts to check that routing goes **straight to experts** with sensible parallelization.
 
-## 1. `directors/new-project`
+## 1. Greenfield prototype
 
 Prompt:
 
@@ -10,11 +10,11 @@ Prompt:
 
 Expected:
 
-- route to `directors/new-project`
-- the director makes the kickoff packet explicit before building
-- if feasibility splits into separate questions, likely flow includes parallel `specialists/researcher` and `specialists/analyst`, followed by `specialists/coder` and `specialists/tester`
+- Invoke `researcher` / `analyst` in parallel when multiple independent feasibility questions exist; otherwise start with the single best-fit expert.
+- After decisions, `coder` then `tester` as needed.
+- Kickoff shape and “what to prove first” appear before heavy build-out.
 
-## 2. `directors/maintain-project`
+## 2. Stalled existing project
 
 Prompt:
 
@@ -22,11 +22,11 @@ Prompt:
 
 Expected:
 
-- route to `directors/maintain-project`
-- the director narrows the work to one continuation path
-- likely flow includes parallel `specialists/analyst` and `specialists/tester` when current behavior can be inspected independently, followed by `specialists/coder` and targeted retest
+- Prefer `analyst` plus `tester` in parallel when structure review and repro are independent.
+- Then `coder`, then targeted `tester`.
+- One clear continuation path, not a generic rewrite pitch.
 
-## 3. `directors/learn-project`
+## 3. Learn from another repo
 
 Prompt:
 
@@ -34,11 +34,11 @@ Prompt:
 
 Expected:
 
-- route to `directors/learn-project`
-- the director defines the learning questions before broad reading
-- likely flow includes parallel question-focused `specialists/researcher` briefs or a split between `specialists/researcher` and `specialists/analyst`, followed by `specialists/writer`
+- Parallel `researcher` briefs per question or subsystem when broad.
+- `analyst` for synthesis; `writer` only for packaging.
+- Learning questions explicit before unfocused browsing.
 
-## 4. mixed request
+## 4. Mixed ask (learn + own repo)
 
 Prompt:
 
@@ -46,11 +46,10 @@ Prompt:
 
 Expected:
 
-- keep the modes explicit instead of blurring them
-- likely sequence: `directors/learn-project` then `directors/maintain-project`
-- within each mode, independent specialist briefs are parallelized instead of serialized into one long director pass
+- Treat as two concerns: keep expert briefs separate instead of one blended pass.
+- Typical order: experts for external learning first, then experts for the user’s repo (not a single mega-role).
 
-## 5. same-mode parallelization
+## 5. Two independent slow paths
 
 Prompt:
 
@@ -58,6 +57,5 @@ Prompt:
 
 Expected:
 
-- route to `directors/maintain-project`
-- the director makes the two investigation tracks explicit instead of collapsing them into one generic scan
-- likely flow includes parallel specialist briefs for the two slow paths, followed by a merged continuation packet with priority recommendation
+- Two explicit investigation briefs (often `analyst` / `tester` combinations per track) **in parallel** when independent.
+- Merged priority recommendation after both return evidence.

@@ -9,3 +9,12 @@ output_layout = "preserve"
 [targets.opencode.model_map]
 default = "github-copilot/gpt-5.4"
 coding = "github-copilot/gpt-5.3-codex"
+
+[targets.copilot]
+enabled = true
+output_dir = "."
+output_layout = "preserve"
+
+[targets.copilot.model_map]
+default = "GPT-5.4"
+coding = "GPT-5.3-codex"
