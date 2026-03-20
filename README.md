@@ -1,71 +1,59 @@
 # roles
 
-Personal work-mode roles for three kinds of work: start new things, maintain existing things, and study other projects.
+Personal **expert** roles: route work straight to `coder`, `analyst`, `researcher`, `tester`, or `writer` with explicit briefs. There is no intermediate director or work-mode role in this package.
 
-This repo only defines role responsibilities and routing. It does not own a memory system, transcript mining loop, or a separate framework layer.
+This repo only defines role responsibilities and routing hints. It does not own a memory system, transcript mining loop, or a separate framework layer.
 
 ## Role Boundary
 
-- `roles/` decides what kind of work this is.
-- The sibling `skills` repo provides reusable methods such as `work-mode-routing`, `tech-preferences`, `project-kickoff`, `maintenance-pass`, and `project-reading`.
+- `roles/` lists callable experts and what each one owns.
+- The sibling `skills` repo can still provide reusable methods (`tech-preferences`, `project-kickoff`, `maintenance-pass`, `project-reading`, etc.); load them when they help, independent of which expert is active.
 - Outputs can stay in the conversation or in ad hoc notes; this repo does not require a fixed runtime memory file.
 
 ## Layout
 
-- `roles/` canonical role prompts.
+- `roles/` one `.md` per expert.
 - `roles.toml` project metadata for `uvx role-forge`.
-- `examples/` a few realistic routing examples.
+- `examples/` realistic routing examples (direct expert calls).
 - `install.sh` one-shot installer for `uvx role-forge` and this roles package.
 
-## Hierarchy
+## Expert roles
 
-- Load `work-mode-routing` when work mode is unclear; it routes to directors.
-- `directors/` own one of the three core work modes and decompose non-trivial work.
-- `specialists/` do narrow execution under a director's explicit brief.
+| Role | Use for |
+|------|--------|
+| `researcher` | Framed questions, prior art, bounded reading of code or docs |
+| `analyst` | Evidence about structure, diffs, logs, or scoping the next change |
+| `coder` | Well-scoped implementation, refactors, prototypes, proofs |
+| `tester` | Targeted repro, diagnostics, regression checks for a named claim |
+| `writer` | Packaging approved findings without changing substance |
 
-## Role Map
+## When to route where
 
-- `work-mode-routing` (skill): choose the current work mode, keep the boundary explicit, and require explicit decomposition for non-trivial work.
-- `directors/new-project`: start a new repo, prototype, or greenfield direction, then split discovery, proof, and validation work.
-- `directors/maintain-project`: continue an existing repo, bugfix, refactor, or next slice of work, then split analysis, implementation, and verification work.
-- `directors/learn-project`: study a strong project, then split reading and distillation work into bounded briefs.
-- `specialists/*`: narrow execution helpers with merge-ready outputs.
+- **Greenfield or “smallest first step”** — often `researcher` and/or `analyst` in parallel when feasibility splits; then `coder`; then `tester` when something must be validated.
+- **Existing repo, continue or fix** — often `analyst` and `tester` in parallel when tracks are independent; then `coder`; then `tester` again for regression.
+- **Study another project** — parallel `researcher` briefs per question or subsystem; then `analyst` for pattern/tradeoff synthesis; `writer` only to polish the final packet.
+- Load `tech-preferences` before meaningful stack choices (via skills, not a role here).
 
-## When To Route Where
+## Operating rules
 
-- Route to `directors/new-project` when the user is opening a new repo, exploring a prototype, or asking for the first workable architecture.
-- Route to `directors/maintain-project` when the user is continuing, fixing, refactoring, or shipping the next step in an existing repo.
-- Route to `directors/learn-project` when the user is reading another project to mine ideas, patterns, or implementation techniques.
-- Load `tech-preferences` before meaningful stack choices.
-- Keep one primary mode active unless the user clearly wants a combined pass.
+- The orchestrator (main agent or you) splits work into **explicit briefs**: `goal`, `inputs`, `non-goals`, `expected output`, and whether the brief blocks other work.
+- If two or more expert briefs do not depend on each other, run them **in parallel** by default.
+- Stay serial when one result materially changes the next brief.
+- Do not chain through a fake “coordinator” role; merge and sequence at the orchestration layer.
 
-## Operating Rules
-
-- Sequence across modes; parallelize inside a mode whenever the subproblems are independent.
-- Directors should make decomposition explicit for non-trivial work: subproblems, dependencies, output floors, and merge plan.
-- If two or more specialist briefs do not depend on each other, run them in parallel by default.
-- Directors should do specialist-sized work directly only when the task is too small to justify delegation or tight synthesis makes delegation wasteful.
-- Specialist briefs should name `goal`, `inputs`, `non-goals`, `expected output`, and whether the brief blocks other work.
-
-## Use It
-
-Install or update the roles package with `uvx role-forge`:
+## Use it
 
 ```bash
 uvx role-forge add zrr1999/roles
 ```
 
-Or use the helper script:
+Or:
 
 ```bash
 bash install.sh
 ```
 
-If you maintain this repo and need to regenerate `.opencode` outputs locally:
-
-```bash
-uvx role-forge cast --project-dir . --target opencode
-```
+If you maintain this repo and regenerate tool outputs, use whatever `role-forge` currently documents for your version (subcommands differ by release).
 
 ## Commit messages
 
@@ -83,19 +71,10 @@ The hook runs `python3 -m tools.hooks.commit_message_validator` on the message f
 python3 -m tools.hooks.commit_message_validator path/to/COMMIT_EDITMSG
 ```
 
-## Expected Outputs
+## Expected outputs
 
-- `directors/new-project`: goal, constraints, initial shape, what to prove first, next 3 tasks
-- `directors/maintain-project`: current state, chosen scope, concrete next change, risks, follow-ups
-- `directors/learn-project`: project snapshot, patterns worth borrowing, patterns to avoid, suggested application
-- `specialists/*`: merge-ready packet with concrete evidence, changes, or wording and any blockers
-
-Use local notes only when they help. The roles should still work without any dedicated artifact file.
+Each expert returns a **merge-ready packet**: concrete evidence, changes, commands/results, or wording, plus blockers. No role invents a second layer of delegation.
 
 ## Examples
 
-- Start a fresh repo for a small internal tool and decide the smallest viable shape.
-- Continue an older project, pick the next meaningful slice, and avoid reopening settled choices.
-- Read an excellent external repo and extract patterns worth bringing back.
-
-See `examples/README.md` for concrete packets and expected routing.
+See `examples/README.md` for concrete user asks and expected expert routing.

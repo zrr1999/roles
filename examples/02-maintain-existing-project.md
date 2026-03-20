@@ -1,36 +1,31 @@
-# Example 02: Maintain An Existing Project
+# Example 02: Maintain an existing project
 
-## User Ask
+## User ask
 
 这个项目我之前做过一半，现在有点乱。帮我看看当前状态，挑一个最值得推进的点继续做，不要整个推倒重来。
 
-## Expected Director
+## Expected routing (experts only)
 
-`directors/maintain-project`
+- Run `analyst` on current structure and `tester` on the failing or confusing path **in parallel** when those tracks are independent.
+- Then `coder` for the chosen change once scope is clear.
+- Then `tester` again for targeted regression.
 
-## Likely Specialist Support
-
-- run `specialists/analyst` on current structure and `specialists/tester` on the failing or confusing path in parallel when they are independent
-- then use `specialists/coder` for the chosen change
-- then use `specialists/tester` again for targeted regression checks
+Optional: load `maintenance-pass` from skills when it helps the briefs.
 
 ## Why
 
-- the repo already exists
-- the user wants continuation and narrowing, not a fresh design
-- preserving momentum matters more than reopening every old decision
-- analysis and repro can often proceed in parallel before the code change is chosen
+- Repo already exists; narrow continuation beats full redesign.
+- Analysis and repro often proceed in parallel before implementation.
 
-## Good Output
+## Good output
 
-- current state summary
-- one chosen continuation path
-- immediate next change
-- risks and follow-ups
-- explicit note about which specialist work ran in parallel and which had to stay serial
+- Current state summary (from `analyst` / synthesis)
+- One chosen continuation path and immediate next change
+- Risks and follow-ups
+- Explicit note of parallel vs serial expert runs
 
-## Bad Output
+## Bad output
 
-- ignoring existing code reality
-- proposing a full rewrite without strong evidence
-- a long single-agent pass that never splits analysis from verification
+- Ignoring existing code
+- Full rewrite without evidence
+- One long pass that never separates analysis from verification

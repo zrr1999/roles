@@ -1,36 +1,32 @@
-# Example 01: New Repo Kickoff
+# Example 01: New repo kickoff
 
-## User Ask
+## User ask
 
 我想做一个新的小工具仓库，先给我一个最小可行方向，最好能顺手做出第一版原型。
 
-## Expected Director
+## Expected routing (experts only)
 
-`directors/new-project`
+- No coordinator role: call experts with explicit briefs.
+- If feasibility splits into separate questions, run `researcher` and `analyst` **in parallel**.
+- Then `coder` for the first proof or minimal implementation.
+- Then `tester` for whatever claim the proof is meant to validate.
 
-## Likely Specialist Support
-
-- if feasibility splits into separate questions, run `specialists/researcher` and `specialists/analyst` in parallel
-- then use `specialists/coder` for the first proof
-- then use `specialists/tester` for the claim that the proof is meant to validate
+Optional: load `project-kickoff` / `tech-preferences` from skills when stack or shape decisions matter.
 
 ## Why
 
-- this is greenfield work
-- the main need is initial shape, not ongoing maintenance
-- stack choices may appear, so `tech-preferences` may need to load
-- separate feasibility questions should be parallelized instead of collapsed into one long director pass
+- Greenfield: discovery and proof before polish.
+- Independent feasibility threads should not be collapsed into one long single pass.
 
-## Good Output
+## Good output
 
-- goal and constraints
-- smallest viable repo shape
-- what should be proved first
-- next 3 tasks
-- explicit delegation plan when more than one independent risk exists
+- Goal and constraints from the briefs, synthesized by the orchestrator
+- Smallest viable repo shape and what to prove first
+- Next 3 tasks
+- Clear note of which expert briefs ran in parallel vs serial
 
-## Bad Output
+## Bad output
 
-- overdesigned architecture before the first proof exists
-- a huge option list with no recommendation
-- the director doing all discovery, implementation, and validation alone without a good reason
+- Overdesigned architecture before a first proof
+- A huge option list with no recommendation
+- One expert doing discovery, implementation, and validation end-to-end without a reason
