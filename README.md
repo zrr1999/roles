@@ -67,6 +67,22 @@ If you maintain this repo and need to regenerate `.opencode` outputs locally:
 uvx role-forge cast --project-dir . --target opencode
 ```
 
+## Commit messages
+
+Commits use a short summary line: optional leading token (for example an emoji), a [Conventional Commits](https://www.conventionalcommits.org/)–style type, optional scope and `!`, then a subject — for example `✨ feat: add more functionality`. Merge, revert, `fixup!`, and `squash!` lines are accepted as-is.
+
+To enforce this locally with Git’s `commit-msg` hook (Python 3.10+):
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The hook runs `python3 -m tools.hooks.commit_message_validator` on the message file Git passes in. You can run the same check manually:
+
+```bash
+python3 -m tools.hooks.commit_message_validator path/to/COMMIT_EDITMSG
+```
+
 ## Expected Outputs
 
 - `directors/new-project`: goal, constraints, initial shape, what to prove first, next 3 tasks
