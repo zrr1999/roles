@@ -1,29 +1,21 @@
-# Example Flows
+# Example flows
 
-These examples are designed to be used as realistic starting packets for the `roles` system.
+These examples are realistic packets for the `roles` system: **direct expert calls** only.
 
 Each example shows:
 
 - the user ask
-- which director to choose
-- which specialists are likely to be pulled in underneath
-- what the chosen role should produce next
+- which expert(s) to invoke first and how to parallelize
+- what good and bad outcomes look like
 
-## Example Index
+## Example index
 
-- `01-new-repo-kickoff.md`: open a fresh repo or prototype
-- `02-maintain-existing-project.md`: continue and narrow an older codebase
-- `03-study-good-project.md`: learn from a strong project and bring lessons back
+- `01-new-repo-kickoff.md`: greenfield / prototype
+- `02-maintain-existing-project.md`: continue an existing codebase
+- `03-study-good-project.md`: learn from a strong external project
 
-The examples intentionally show the separation of concerns:
+Separation of concerns:
 
-- roles choose the work mode
-- skills provide reusable working methods
-- `tech-preferences` only gets involved when real choices need it
-
-They also show the layering:
-
-- agent routes to the director (via `work-mode-routing`)
-- directors decompose the work into explicit specialist briefs
-- independent specialist briefs run in parallel by default
-- specialists stay narrow and return merge-ready packets
+- **This repo** defines experts and tight boundaries.
+- **Skills** (other repo) supply reusable working methods when useful.
+- **Orchestration** stays outside the role files: you or the main agent merges briefs and ordering.
