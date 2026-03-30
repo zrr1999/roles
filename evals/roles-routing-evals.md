@@ -59,3 +59,39 @@ Expected:
 
 - Two explicit investigation briefs (often `analyst` / `tester` combinations per track) **in parallel** when independent.
 - Merged priority recommendation after both return evidence.
+
+## 6. Security review
+
+Prompt:
+
+> 帮我 review 这个 PR，重点看认证和权限相关的改动有没有安全隐患。
+
+Expected:
+
+- Route to `security-reviewer`.
+- The reviewer traces user-controlled input to dangerous sinks.
+- Findings include attack path and confidence level.
+
+## 7. Performance review
+
+Prompt:
+
+> 这个数据库查询相关的改动帮我看一下性能方面有没有问题，数据量比较大。
+
+Expected:
+
+- Route to `performance-reviewer`.
+- The reviewer evaluates queries against expected data scale.
+- Findings focus on measurable production impact.
+
+## 8. Architecture review
+
+Prompt:
+
+> 这次重构把服务拆分了，帮我看看模块边界和依赖方向有没有问题。
+
+Expected:
+
+- Route to `architecture-reviewer`.
+- The reviewer checks dependency directions and component boundaries.
+- Findings reference specific architectural principles.
