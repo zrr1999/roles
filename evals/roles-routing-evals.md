@@ -1,6 +1,6 @@
 # Roles routing smoke tests
 
-Use these prompts to check that routing goes **straight to experts** with sensible parallelization.
+Use these prompts to check that routing goes **straight to roles** with sensible parallelization.
 
 ## 1. Greenfield prototype
 
@@ -10,8 +10,8 @@ Prompt:
 
 Expected:
 
-- Invoke `researcher` / `analyst` in parallel when multiple independent feasibility questions exist; otherwise start with the single best-fit expert.
-- After decisions, `coder` then `tester` as needed.
+- Invoke `inspector` in parallel when multiple independent feasibility questions exist; otherwise start with the single best-fit brief.
+- After decisions, `executor` then `verifier` as needed.
 - Kickoff shape and “what to prove first” appear before heavy build-out.
 
 ## 2. Stalled existing project
@@ -22,8 +22,8 @@ Prompt:
 
 Expected:
 
-- Prefer `analyst` plus `tester` in parallel when structure review and repro are independent.
-- Then `coder`, then targeted `tester`.
+- Prefer `inspector` plus `verifier` in parallel when structure review and repro are independent.
+- Then `executor`, then targeted `verifier`.
 - One clear continuation path, not a generic rewrite pitch.
 
 ## 3. Learn from another repo
@@ -34,8 +34,8 @@ Prompt:
 
 Expected:
 
-- Parallel `researcher` briefs per question or subsystem when broad.
-- `analyst` for synthesis; `writer` only for packaging.
+- Parallel `inspector` briefs per question or subsystem when broad.
+- Additional `inspector` for synthesis if needed.
 - Learning questions explicit before unfocused browsing.
 
 ## 4. Mixed ask (learn + own repo)
@@ -46,8 +46,8 @@ Prompt:
 
 Expected:
 
-- Treat as two concerns: keep expert briefs separate instead of one blended pass.
-- Typical order: experts for external learning first, then experts for the user’s repo (not a single mega-role).
+- Treat as two concerns: keep briefs separate instead of one blended pass.
+- Typical order: external learning briefs first, then briefs for the user’s repo (not a single mega-role).
 
 ## 5. Two independent slow paths
 
@@ -57,7 +57,7 @@ Prompt:
 
 Expected:
 
-- Two explicit investigation briefs (often `analyst` / `tester` combinations per track) **in parallel** when independent.
+- Two explicit investigation briefs (often `inspector` / `verifier` combinations per track) **in parallel** when independent.
 - Merged priority recommendation after both return evidence.
 
 ## 6. Security review
@@ -68,8 +68,8 @@ Prompt:
 
 Expected:
 
-- Route to `security-reviewer`.
-- The reviewer traces user-controlled input to dangerous sinks.
+- Route to `verifier` with **`lens: security`** on the brief.
+- The run traces user-controlled input to dangerous sinks.
 - Findings include attack path and confidence level.
 
 ## 7. Performance review
@@ -80,8 +80,8 @@ Prompt:
 
 Expected:
 
-- Route to `performance-reviewer`.
-- The reviewer evaluates queries against expected data scale.
+- Route to `verifier` with **`lens: performance`** on the brief.
+- The run evaluates queries against expected data scale.
 - Findings focus on measurable production impact.
 
 ## 8. Architecture review
@@ -92,6 +92,6 @@ Prompt:
 
 Expected:
 
-- Route to `architecture-reviewer`.
-- The reviewer checks dependency directions and component boundaries.
+- Route to `verifier` with **`lens: architecture`** on the brief.
+- The run checks dependency directions and component boundaries.
 - Findings reference specific architectural principles.

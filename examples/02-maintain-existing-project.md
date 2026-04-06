@@ -4,13 +4,13 @@
 
 这个项目我之前做过一半，现在有点乱。帮我看看当前状态，挑一个最值得推进的点继续做，不要整个推倒重来。
 
-## Expected routing (experts only)
+## Expected routing (roles only)
 
-- Run `analyst` on current structure and `tester` on the failing or confusing path **in parallel** when those tracks are independent.
-- Then `coder` for the chosen change once scope is clear.
-- Then `tester` again for targeted regression.
+- Run `inspector` on current structure and `verifier` on the failing or confusing path **in parallel** when those tracks are independent.
+- Then `executor` for the chosen change once scope is clear.
+- Then `verifier` again for targeted regression.
 
-Optional: load `maintenance-pass` from skills when it helps the briefs.
+Optional: load `project-workflows` from skills when it helps the briefs.
 
 ## Why
 
@@ -19,10 +19,10 @@ Optional: load `maintenance-pass` from skills when it helps the briefs.
 
 ## Good output
 
-- Current state summary (from `analyst` / synthesis)
+- Current state summary (from `inspector` / synthesis)
 - One chosen continuation path and immediate next change
 - Risks and follow-ups
-- Explicit note of parallel vs serial expert runs
+- Explicit note of parallel vs serial runs
 
 ## Bad output
 

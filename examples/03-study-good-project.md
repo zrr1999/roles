@@ -4,13 +4,13 @@
 
 帮我读一下这个优秀项目，看看它有哪些特别好的设计值得我借鉴，最好能顺手指出哪些不适合直接照搬。
 
-## Expected routing (experts only)
+## Expected routing (roles only)
 
-- Separate `researcher` briefs **in parallel** for different subsystems or questions when the project is broad.
-- `analyst` once there is enough evidence to compare patterns and tradeoffs.
-- `writer` only to tighten the final packet, not to invent conclusions.
+- Separate `inspector` briefs **in parallel** for different subsystems or questions when the project is broad.
+- `inspector` again once there is enough evidence to compare patterns and tradeoffs.
+- Final user-facing packet can be assembled by the orchestrator from returned evidence—no separate packaging role required.
 
-Optional: load `project-reading` from skills to frame questions before broad browsing.
+Optional: load `project-workflows` (learn-project lane) from skills to frame questions before broad browsing.
 
 ## Why
 
