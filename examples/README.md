@@ -1,21 +1,21 @@
 # Example flows
 
-These examples are realistic packets for the `roles` system: **direct expert calls** only.
+These examples are realistic packets for the `roles` system: **direct role calls** only.
 
 Each example shows:
 
 - the user ask
-- which expert(s) to invoke first and how to parallelize
+- which role(s) to invoke first and how to parallelize
 - what good and bad outcomes look like
 
 ## Example index
 
-- `01-new-repo-kickoff.md`: greenfield / prototype
-- `02-maintain-existing-project.md`: continue an existing codebase
-- `03-study-good-project.md`: learn from a strong external project
+- [`01-new-repo-kickoff.md`](01-new-repo-kickoff.md): greenfield / prototype
+- [`02-maintain-existing-project.md`](02-maintain-existing-project.md): continue an existing codebase
+- [`03-study-good-project.md`](03-study-good-project.md): learn from a strong external project
 
 Separation of concerns:
 
-- **This repo** defines experts and tight boundaries.
+- **This repo** defines agent responsibilities and tight boundaries.
 - **Skills** (other repo) supply reusable working methods when useful.
 - **Orchestration** stays outside the role files: you or the main agent merges briefs and ordering.
