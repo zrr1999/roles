@@ -70,7 +70,3 @@ Each role returns a **merge-ready packet**: concrete evidence, changes, commands
 ## Examples
 
 See [`examples/README.md`](examples/README.md) for concrete user asks and expected routing.
-
-## Migration from older role names
-
-If you used the previous five-role model or separate reviewer roles, see [`MIGRATION.md`](MIGRATION.md).
